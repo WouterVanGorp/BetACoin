@@ -1,25 +1,28 @@
+import { Button } from "react-bootstrap";
+
+import styles from "./Board.module.css";
+import { ISquareGame, ITile } from "../models";
+
 interface Props {
-  bs: any;
-  onClick: (t: string) => void;
+  board: ISquareGame;
 }
 
-export function Board({ bs, onClick }: Props) {
+export function Board({ board }: Props) {
   const myStyles = {
     built: { backgroundColor: "rgba(50, 50, 50, 0.8)", color: "#b9b9b9" },
     unbuilt: { backgroundColor: "rgba(255, 255, 255, 0.8)" },
   };
 
   return (
-    <div className="board-container">
-      {bs.map((tile: any) => {
+    <div className={styles.boardContainer}>
+      {board.tiles.map((tile: ITile) => {
         return (
           <div
-            onClick={() => onClick(tile)}
-            key={tile.key}
-            className="board-item"
+            key={tile.code}
+            className={styles.boardItem}
             style={tile.clicked ? myStyles.built : myStyles.unbuilt}
           >
-            ...
+            <Button variant="secondary">{tile.code}</Button>
           </div>
         );
       })}

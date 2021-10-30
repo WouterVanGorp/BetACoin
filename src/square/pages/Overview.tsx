@@ -1,14 +1,15 @@
 import { useState } from "react";
 import { Button, Card } from "react-bootstrap";
+
 import styles from "./Overview.module.css";
+import { Board } from "./../components";
+import { ISquareGame, SquareGame } from "./../models";
 
-interface Props {}
-
-export function Overview({}: Props) {
-  const [games, addGame] = useState(["", ""]);
+export function Overview() {
+  const [games, addGame] = useState<ISquareGame[]>([]);
 
   const newGame = () => {
-    addGame([...games, ""]);
+    addGame([...games, new SquareGame(games.length, 4, 4, 1)]);
   };
 
   return (
@@ -19,9 +20,10 @@ export function Overview({}: Props) {
       </Button>
 
       <div className={styles.cardContainer}>
-        {games.map((_) => (
-          <Card className={styles.card} body>
-            test
+        {games.map((board) => (
+          <Card key={board.id} className={styles.card} body>
+            <Card.Title>{board.getChances()}</Card.Title>
+            <Board board={board} />
           </Card>
         ))}
       </div>
