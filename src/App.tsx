@@ -1,5 +1,6 @@
 import React from "react";
 import "./App.css";
+import { Header, Navbar } from "./components";
 import { Board } from "./square/pages/Board";
 
 const boardGenerator = (numCol = 3, numRow = 3) => {
@@ -24,8 +25,14 @@ let tilelist = boardGenerator();
 
 function App() {
   return (
-    <div className="App">
-      <Board bs={tilelist} onClick={tileClickHandler}></Board>
+    <div>
+      <Header />
+      <div>
+        <Navbar />
+      </div>
+      <div>
+        <Board bs={tilelist} onClick={tileClickHandler}></Board>
+      </div>
     </div>
   );
 }
