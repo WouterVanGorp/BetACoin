@@ -5,6 +5,8 @@ export interface ISquareGame {
   tiles: Tile[];
   currentPrice: number;
   state: "new" | "active" | "finished";
+
+  getChances: () => string;
 }
 
 export class SquareGame implements ISquareGame {
@@ -25,8 +27,8 @@ export class SquareGame implements ISquareGame {
 
   private generateTiles(cols: number, rows: number): Tile[] {
     const result = [];
-    for (let c = 0; c <= cols; c++) {
-      for (let r = 0; r <= rows; r++) {
+    for (let c = 0; c < cols; c++) {
+      for (let r = 0; r < rows; r++) {
         result.push(new Tile(this.createCode(c, r)));
       }
     }
@@ -35,4 +37,10 @@ export class SquareGame implements ISquareGame {
 
   private createCode = (col: number, row: number): string =>
     `${col}${String.fromCharCode(65 + row)}`;
+
+  public getChances = (): string => {
+    const amount = this.tiles.length;
+    const bought = this.tiles.filter(t => t.clicked).length;
+    return `${bought}/${amount}`;
+  };
 }
