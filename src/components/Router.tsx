@@ -1,6 +1,6 @@
 import { Switch, Route } from "react-router-dom";
 import { Routes } from "./../routes";
-import { Login } from "./../login/login";
+import { Login } from "../login/login";
 import { Overview } from "./../square/pages/Overview";
 
 export function Router() {
