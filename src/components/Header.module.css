@@ -17,8 +17,6 @@
   padding-right: 20px;
   
   color: var(--color-base-accent);
-  /* background-color: var(--color-base-accent); */
   background-color: var(--color-base-silver);
   border: 5px solid var(--color-base-gold);
-  /* opacity: 0.9; */
 }

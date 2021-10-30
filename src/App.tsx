@@ -1,6 +1,5 @@
-import React from "react";
 import "./styles/App.css";
-import { Header, Navbar } from "./components";
+import { Header } from "./components";
 import { Board } from "./square/pages/Board";
 
 const boardGenerator = (numCol = 4, numRow = 4) => {
@@ -27,9 +26,6 @@ function App() {
   return (
     <div>
       <Header />
-      <div>
-        <Navbar />
-      </div>
       <div>
         <Board bs={tilelist} onClick={tileClickHandler}></Board>
       </div>
