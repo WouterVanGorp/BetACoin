@@ -1,9 +1,9 @@
 import React from "react";
-import "./App.css";
+import "./styles/App.css";
 import { Header, Navbar } from "./components";
 import { Board } from "./square/pages/Board";
 
-const boardGenerator = (numCol = 3, numRow = 3) => {
+const boardGenerator = (numCol = 4, numRow = 4) => {
   let board = [];
   for (let r = 0; r < numRow; r++) {
     for (let c = 1; c <= numCol; c++) {
