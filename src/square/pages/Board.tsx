@@ -1,7 +1,22 @@
 interface Props {
-  rows: number;
+  bs: any;
+  onClick: (t: string) => void;
 }
 
-export function Board({ rows }: Props) {
-  return <h1>compoment</h1>;
+export function Board({ bs, onClick }: Props) {
+  return (
+    <div className="board-container">
+      {bs.map((tile: any) => {
+        return (
+          <div
+            onClick={() => onClick(tile)}
+            key={tile.key}
+            className="board-item"
+          >
+            {tile.name}
+          </div>
+        );
+      })}
+    </div>
+  );
 }
