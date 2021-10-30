@@ -1,11 +1,8 @@
 @import url(./../styles/variables.css);
 
 .root {
-  height: 60px;
-
-  color: var(--color-base-white);
-  background-color: var(--color-base-accent);
-  /* background-image: url('./../assets/'); */
+  height: 100px;
+  background-image: url('./../assets/crypo-banner.jpg');
 
   display: flex;
   justify-content: space-evenly;
@@ -14,5 +11,14 @@
 
 .title {
   font-weight: 700;
-  font-size: xx-large;
+  font-size: xxx-large;
+
+  padding-left: 20px;
+  padding-right: 20px;
+  
+  color: var(--color-base-accent);
+  /* background-color: var(--color-base-accent); */
+  background-color: var(--color-base-silver);
+  border: 5px solid var(--color-base-gold);
+  /* opacity: 0.9; */
 }
