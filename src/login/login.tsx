@@ -1,5 +1,5 @@
-import { Link, useHistory } from "react-router-dom";
-import { auth, firebaseApp } from "./firebase.js";
+import { useHistory } from "react-router-dom";
+import { auth } from "./firebase.js";
 import { useState } from "react";
 
 export const Login = () => {
