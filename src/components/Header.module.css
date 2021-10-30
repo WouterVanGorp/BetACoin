@@ -1,0 +1,18 @@
+@import url(./../styles/variables.css);
+
+.root {
+  height: 60px;
+
+  color: var(--color-base-white);
+  background-color: var(--color-base-accent);
+  /* background-image: url('./../assets/'); */
+
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.title {
+  font-weight: 700;
+  font-size: xx-large;
+}
