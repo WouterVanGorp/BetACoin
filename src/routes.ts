@@ -1,4 +1,4 @@
 export enum Routes {
   LOGIN = "/login",
-  GAME = "/games/square",
+  GAME_SQUARE = "/games/square",
 }
