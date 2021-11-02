@@ -1,14 +1,12 @@
 import "./styles/App.css";
-import { Header } from "./components";
+import { Header } from "./shared/components";
 import { Router } from "./Router";
 
 export default function App() {
   return (
     <div>
       <Header />
-      <div>
-        <Router />
-      </div>
+      <Router />
     </div>
   );
 }
