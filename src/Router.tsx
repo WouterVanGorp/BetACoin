@@ -1,4 +1,4 @@
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 import { Routes } from "./routes";
 import { Login } from "./login/login";
 import { Overview } from "./square/pages/Overview";
@@ -11,6 +11,9 @@ export function Router() {
       </Route>
       <Route path={Routes.GAME_SQUARE}>
         <Overview />
+      </Route>
+      <Route path="*">
+        <Redirect to={Routes.GAME_SQUARE} />
       </Route>
     </Switch>
   );
