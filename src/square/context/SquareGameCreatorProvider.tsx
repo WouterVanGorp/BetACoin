@@ -47,11 +47,20 @@ export function SquareGameCreatorProvider({ children, rows, cols }: Props) {
   ): Game {
     switch (type) {
       case "tileClicked": {
-        const tiles = state.tiles.map((t) =>
-          t.code === payload.code
-            ? { ...t, className: "tilePrev", clicked: true }
-            : { ...t, className: "" }
-        );
+        // if this is the last clickable tile
+        if (
+          state.tiles.filter((t) => !t.clicked).length === 1 &&
+          state.active &&
+          state.winningCode === payload.code
+        ) {
+          const tiles = state.tiles.map((t) =>
+            t.code === state.winningCode
+              ? { ...t, className: "tileWin", clicked: true }
+              : { ...t, clicked: true, className: "" }
+          );
+          return { ...state, tiles: [...tiles], active: false };
+        }
+        // If previous tile has won
         if (state.winningCode === state.prevTile) {
           const tiles = state.tiles.map((t) =>
             t.code === state.winningCode
@@ -59,8 +68,13 @@ export function SquareGameCreatorProvider({ children, rows, cols }: Props) {
               : { ...t, clicked: true, className: "" }
           );
           return { ...state, tiles: [...tiles], active: false };
-          // if(!state.tiles.some(t => !t.clicked) && state.active )
         }
+        // all other cases
+        const tiles = state.tiles.map((t) =>
+          t.code === payload.code
+            ? { ...t, className: "tilePrev", clicked: true }
+            : { ...t, className: "" }
+        );
         return { ...state, tiles: [...tiles], prevTile: payload.code };
       }
       default: {
