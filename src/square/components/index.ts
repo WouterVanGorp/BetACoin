@@ -1,1 +1,2 @@
-export * from "./SquareContainer";
+export * from "./SquareGame";
+export * from "./Tile";

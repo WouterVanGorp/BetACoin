@@ -1,0 +1,21 @@
+@import url("./../../styles/variables.css");
+
+.btnStyle {
+  font-weight: bold;
+
+  color: var(--color-base-accent);
+  background-color: var(--color-base-silver);
+
+  border: 2px solid var(--color-base-gold);
+  border-radius: 2px;
+
+  margin: 5px;
+}
+
+.btnStyle:hover {
+  background-color: var(--color-base-gold);
+}
+
+.btnStyle:disabled {
+  border: 2px solid var(--color-base-silver);
+}

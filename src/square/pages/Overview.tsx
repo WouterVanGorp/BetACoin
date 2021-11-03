@@ -1,14 +1,14 @@
-import styles from "./Overview.module.css";
-import { SquareContainer } from "../components";
+import { SquareGame } from "../components";
+import { SquareGameCreatorProvider } from "./../context/SquareGameContect";
 
 export function Overview() {
   return (
     <>
       <h1>Square game</h1>
-      <div>
-        <SquareContainer cols={3} rows={3}>
-          <span>test2</span>
-        </SquareContainer>
+      <div className="row">
+        <SquareGameCreatorProvider rows={3} cols={3}>
+          <SquareGame />
+        </SquareGameCreatorProvider>
       </div>
     </>
   );
