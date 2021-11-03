@@ -1,3 +1,4 @@
 .rowStyle {
-    text-align: center;
+  text-align: center;
+  justify-content: space-evenly;
 }

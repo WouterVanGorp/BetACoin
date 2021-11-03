@@ -1,15 +1,21 @@
 import { SquareGame } from "../components";
-import { SquareGameCreatorProvider } from "./../context/SquareGameContect";
+import { SquareGameCreatorProvider } from "../context/SquareGameCreatorProvider";
 
 export function Overview() {
   return (
     <>
       <h1>Square game</h1>
-      <div className="row">
-        <SquareGameCreatorProvider rows={3} cols={3}>
+        <SquareGameCreatorProvider rows={4} cols={7}>
           <SquareGame />
         </SquareGameCreatorProvider>
-      </div>
+        <br />
+        <SquareGameCreatorProvider rows={2} cols={2}>
+          <SquareGame />
+        </SquareGameCreatorProvider>
+        <br />
+        <SquareGameCreatorProvider rows={1} cols={8}>
+          <SquareGame />
+        </SquareGameCreatorProvider>
     </>
   );
 }
