@@ -83,9 +83,7 @@ export function SquareGameCreatorProvider({ children, rows, cols }: Props) {
     }
   }
 
-  const tileClicked = (code: string) => {
-    dispatch({ type: "tileClicked", payload: { code } });
-  };
+  const tileClicked = (code: string) => dispatch({ type: "tileClicked", payload: { code } });
 
   return (
     <SquareGameCreatorContext.Provider value={{ rows, cols }}>
