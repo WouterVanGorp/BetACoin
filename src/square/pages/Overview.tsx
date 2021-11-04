@@ -14,12 +14,14 @@ export function Overview() {
   };
   return (
     <>
-      <h1>Square game</h1>
-      <br />
-      <Button className={styles.addBtn} onClick={addNewGame} variant="custom">
-        Add game
-      </Button>
-      <br />
+      <div className={styles.header}>
+        <h1>Square game</h1>
+
+        <Button className={styles.addBtn} onClick={addNewGame} variant="custom">
+          Add game
+        </Button>
+      </div>
+
       <div className={styles.gamesContainer}>
         {games.map((g) => (
           <SquareGameCreatorProvider
