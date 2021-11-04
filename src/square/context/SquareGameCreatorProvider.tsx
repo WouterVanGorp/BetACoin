@@ -8,7 +8,7 @@ import {
 
 interface Props {
   children: React.ReactNode;
-  id:number;
+  id: number;
   rows: number;
   cols: number;
 }
@@ -27,7 +27,15 @@ export function SquareGameCreatorProvider({ children, id, rows, cols }: Props) {
     return { clicked: false, code: `R${row}C${col}`, className: "" };
   }
 
-  function createGame({ id, rows, cols }: { id: number, rows: number; cols: number }): Game {
+  function createGame({
+    id,
+    rows,
+    cols,
+  }: {
+    id: number;
+    rows: number;
+    cols: number;
+  }): Game {
     const tiles = createTiles(rows, cols);
     const game: Game = {
       id: id,
@@ -84,12 +92,23 @@ export function SquareGameCreatorProvider({ children, id, rows, cols }: Props) {
     }
   }
 
-  const tileClicked = (code: string) => dispatch({ type: "tileClicked", payload: { code } });
+  function tileClicked(code: string) {
+    dispatch({ type: "tileClicked", payload: { code } });
+  }
+
+  function getGameTitle(): string {
+    if (!state.active) return "CLOSED!";
+    const disabledTiles = state.tiles.filter((t) => t.clicked).length;
+    const reductionFactor = (disabledTiles === 0 ? 1 : disabledTiles) - 1;
+    const allTiles = state.tiles.length;
+
+    return `1/${allTiles - reductionFactor}`;
+  }
 
   return (
     <SquareGameCreatorContext.Provider value={{ id, rows, cols }}>
       <SquareGameContext.Provider value={state}>
-        <SquareGameUpdateContext.Provider value={tileClicked}>
+        <SquareGameUpdateContext.Provider value={{ tileClicked, getGameTitle }}>
           {children}
         </SquareGameUpdateContext.Provider>
       </SquareGameContext.Provider>

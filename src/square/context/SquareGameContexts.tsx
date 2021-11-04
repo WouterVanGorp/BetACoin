@@ -8,5 +8,5 @@ export const SquareGameCreatorContext = React.createContext<{
 }>({ id: 0, rows: 3, cols: 3 });
 export const SquareGameContext = React.createContext<Game>({} as Game);
 export const SquareGameUpdateContext = React.createContext<
-  (code: string) => void
->((code: string) => {});
+  {tileClicked: (code: string) => void, getGameTitle: () => string}
+>(({tileClicked: (code: string) => {}, getGameTitle: () => ''}));
