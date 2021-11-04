@@ -2,3 +2,7 @@
   text-align: center;
   justify-content: space-evenly;
 }
+
+.card {
+  display: inline-block;
+}

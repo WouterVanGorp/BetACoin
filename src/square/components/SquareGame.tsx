@@ -1,4 +1,5 @@
 import { Card } from "react-bootstrap";
+
 import {
   useSquareGameContext,
   useSquareGameUpdateContext,
@@ -11,7 +12,7 @@ export function SquareGame() {
   const onTileClick = useSquareGameUpdateContext();
 
   return (
-    <Card body style={{ width: `${cols * 100}px` }}>
+    <Card body className={styles.card} style={{ width: `${cols * 100}px` }}>
       {new Array(rows).fill(1).map((_, rowIndex) => (
         <div key={"row-" + rowIndex} className={`row ${styles.rowStyle}`}>
           {new Array(cols).fill(2).map((_, colIndex) => (

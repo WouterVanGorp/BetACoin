@@ -8,12 +8,13 @@ import {
 
 interface Props {
   children: React.ReactNode;
+  id:number;
   rows: number;
   cols: number;
 }
 
-export function SquareGameCreatorProvider({ children, rows, cols }: Props) {
-  const [state, dispatch] = useReducer(reducer, { rows, cols }, createGame);
+export function SquareGameCreatorProvider({ children, id, rows, cols }: Props) {
+  const [state, dispatch] = useReducer(reducer, { id, rows, cols }, createGame);
 
   function createTiles(rows: number, cols: number): Tile[] {
     const result: Tile[] = [];
@@ -26,10 +27,10 @@ export function SquareGameCreatorProvider({ children, rows, cols }: Props) {
     return { clicked: false, code: `R${row}C${col}`, className: "" };
   }
 
-  function createGame({ rows, cols }: { rows: number; cols: number }): Game {
+  function createGame({ id, rows, cols }: { id: number, rows: number; cols: number }): Game {
     const tiles = createTiles(rows, cols);
     const game: Game = {
-      id: 1,
+      id: id,
       active: true,
       prevTile: undefined,
       cols,
@@ -86,7 +87,7 @@ export function SquareGameCreatorProvider({ children, rows, cols }: Props) {
   const tileClicked = (code: string) => dispatch({ type: "tileClicked", payload: { code } });
 
   return (
-    <SquareGameCreatorContext.Provider value={{ rows, cols }}>
+    <SquareGameCreatorContext.Provider value={{ id, rows, cols }}>
       <SquareGameContext.Provider value={state}>
         <SquareGameUpdateContext.Provider value={tileClicked}>
           {children}

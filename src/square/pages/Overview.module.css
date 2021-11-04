@@ -1,1 +1,13 @@
+@import url("./../../styles/variables.css");
 
+.addBtn {
+  font-weight: bold;
+  color: var(--color-base-accent);
+  background-color: var(--color-base-gold);
+}
+
+.gamesContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
