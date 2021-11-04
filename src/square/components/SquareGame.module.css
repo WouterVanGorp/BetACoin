@@ -5,4 +5,7 @@
 
 .card {
   display: inline-block;
+  
+  background-image: url('./../../assets/card-bg.jpg');
+  background-size: cover;
 }

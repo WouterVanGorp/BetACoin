@@ -1,0 +1,8 @@
+@import url('./variables.css');
+
+.routerContainer {
+  margin: 20px;
+  background: var(--color-base-white);
+  border-radius: 5px;
+  padding: 30px;
+}

@@ -15,6 +15,7 @@
 
 .btnStyle:hover {
   background-color: var(--color-base-gold);
+  border: 2px solid var(--color-base-silver);
 }
 
 .btnStyle:disabled {
@@ -23,11 +24,11 @@
 
 .tileWin {
   background-color: var(--color-base-gold);
-  border: 2px solid var(--color-base-silver);
+  border: 2px solid var(--color-base-gold);
 }
 
 .tilePrev {
   color: var(--color-base-white);
   background-color: var(--color-base-accent);
-  border: 2px solid var(--color-base-silver);
+  border: 2px solid var(--color-base-gold);
 }
